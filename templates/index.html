@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f8fb;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #004aad;
+            margin-top: 30px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h3 {
+            text-align: center;
+            color: #28a745;
+            margin-top: 20px;
+        }
+
+        /* Doctor-themed header */
+        .header {
+            background-color: #004aad;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .icon img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        Cancer Prediction Tool
+    </div>
+
+    <div class="container">
+        <div class="icon">
+            <img src="https://www.cancer.gov/sites/g/files/xnrzdm211/files/styles/cgov_article/public/cgov_contextual_image/100/900/3/files/dividing-breast-cancer-cell-article-only.jpg?itok=7_RRcbFU" alt="Cancer Cell Image">
+        </div>
+    </div>
+
+    <h2>Predict if the Tumor is Malignant or Benign</h2>
+    <form method="POST" action="/predict">
+        <label for="perimeter_mean">Perimeter Mean:</label>
+        <input type="text" name="perimeter_mean" required>
+
+        <label for="area_mean">Area Mean:</label>
+        <input type="text" name="area_mean" required>
+
+        <label for="area_se">Area SE:</label>
+        <input type="text" name="area_se" required>
+
+        <label for="perimeter_worst">Perimeter Worst:</label>
+        <input type="text" name="perimeter_worst" required>
+
+        <label for="area_worst">Area Worst:</label>
+        <input type="text" name="area_worst" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
